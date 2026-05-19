@@ -748,7 +748,7 @@
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-bottom:2rem;">
       <div onclick="showView('findings')" style="background:var(--teal); color:var(--parchment); border-radius:var(--radius); padding:1.5rem; cursor:pointer; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
         <div style="font-family:'DM Serif Display',serif; font-size:1.1rem; margin-bottom:0.5rem;">Cross-Cutting Findings</div>
-        <div style="font-size:0.8rem; opacity:0.7; line-height:1.5;">10 patterns that emerge across all transcripts — the structural logic of the campus's memory.</div>
+        <div style="font-size:0.8rem; opacity:0.7; line-height:1.5;">10 patterns that emerge across all 17 transcripts — the structural logic of the campus's memory.</div>
         <div style="margin-top:1rem; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.6;">View → </div>
       </div>
       <div onclick="showView('spaces')" style="background:var(--ink); color:var(--parchment); border-radius:var(--radius); padding:1.5rem; cursor:pointer; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
@@ -1128,21 +1128,6 @@ function showView(name) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ── BUILD PARTICIPANTS ──
-function buildParticipants() {
-  const grid = document.getElementById('participant-grid');
-  DATA.participants.forEach(p => {
-    const card = document.createElement('div');
-    card.style.cssText = 'background:white;border:1px solid var(--border);border-radius:6px;padding:0.9rem 1rem;';
-    card.innerHTML = `
-      <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--teal);margin-bottom:0.2rem;">${p.id}</div>
-      <div style="font-size:0.75rem;color:var(--ink-soft);font-weight:500;margin-bottom:0.3rem;">${p.period}</div>
-      <div style="font-size:0.78rem;color:var(--ink-mid);line-height:1.4;">${p.note}</div>
-    `;
-    grid.appendChild(card);
-  });
-}
-
 // ── BUILD CROSS FINDINGS ──
 function buildCross() {
   const grid = document.getElementById('cross-grid');
@@ -1225,7 +1210,6 @@ function buildProvocations() {
 }
 
 // ── INIT ──
-buildParticipants();
 buildCross();
 buildSpacesNav();
 buildProvocations();
